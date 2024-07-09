@@ -13,8 +13,8 @@
   "main": "./extension.js",
   "contributes": {
     "commands": [{
-      "command": "reset.helloWorld",
-      "title": "Hello World"
+      "command": "extension.reset",
+      "title": "reset the vscode window to default scaffold"
     }]
   },
   "scripts": {
