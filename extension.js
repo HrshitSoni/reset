@@ -17,31 +17,33 @@ function activate(context) {
 		const editor = vscode.window.activeTextEditor;
 		if(editor){
 			const document =editor.document;
-			const select = editor.selection;
+			const oldcode = new vscode.Range(
+				document.positionAt(0),
+				document.positionAt(document.getText().length)
+			); 
 
 			const scaffold = `#include <bits/stdc++.h>
-								using namespace std;
-								#define elif else if
-								#define nl endl
-								#define ll long long
-								#define ull unsigned long long
-								#define db double
+using namespace std;
+#define elif else if
+#define nl endl
+#define ll long long
+#define ull unsigned long long
+#define db double
 
 
-								int main() {
-								ios::sync_with_stdio(false);
-								cin.tie(0);
+	int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
 
-								int t;
-								cin>>t;
-								while(t--){
-									
-								}
-								
-								}`
+		int t;
+		cin>>t;
+		while(t--){
+
+		}
+	}`
 
 								editor.edit(editBuilder => {
-									editBuilder.replace(select, scaffold);
+									editBuilder.replace(oldcode, scaffold);
 								});
 		}
 	});
@@ -49,7 +51,7 @@ function activate(context) {
 	context.subscriptions.push(disposable);
 }
 
-const button = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left,100);
+const button = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left,500);
 button.command = 'extension.reset';
 button.tooltip = 'Resets the code to default boilerplate code'
 button.show();
