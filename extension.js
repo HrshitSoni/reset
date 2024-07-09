@@ -48,13 +48,16 @@ using namespace std;
 		}
 	});
 
+	let button = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 100);
+    button.text = "$(sync~spin) Reset Code";
+    button.command = 'extension.reset';
+    button.tooltip = 'Resets the code to default boilerplate code';
+    button.show();
+
+	context.subscriptions.push(button);
 	context.subscriptions.push(disposable);
 }
 
-const button = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left,500);
-button.command = 'extension.reset';
-button.tooltip = 'Resets the code to default boilerplate code'
-button.show();
 
 // This method is called when your extension is deactivated
 function deactivate() {}
