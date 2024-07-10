@@ -3,6 +3,7 @@
   "displayName": "Reset",
   "description": "resets the code on visual studio to a default prompt (using for cp)",
   "version": "0.0.1",
+  "publisher": "HarshitSoni",
   "engines": {
     "vscode": "^1.91.0"
   },
@@ -13,6 +14,7 @@
     "*"
   ],
   "main": "./extension.js",
+  "icon": "Images/icon.png",
   "contributes": {
     "commands": [{
       "command": "extension.reset",
